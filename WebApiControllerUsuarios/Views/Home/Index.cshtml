@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApiControllerUsuarios.Models.Usuarios_tipo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if (TempData["mensaje"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["mensaje"]
+    </div>
+}
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["error"]
+    </div>
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApPaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApMaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApPaterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApMaterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contraseña)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
